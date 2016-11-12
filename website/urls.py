@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include,url
 from django.contrib import admin
+from BetterDAI.views import patient_connect, processForm
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', include('BetterDAI.urls')),
+    url(r'^patientconnect/$', patient_connect, name='patientconnect'),
+    url(r'^process_form/$', processForm, name='processForm'),
+
 ]

@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from . import views
+from website.views import processForm
 
 urlpatterns = [
 
     url(r'^$', views.index, name='index'), #Default page
+    url(r'^patientconnect/$', views.patient_connect, name='patientconnect'),
+    url(r'^process_form/$', processForm)
+
+
 ]

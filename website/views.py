@@ -10,13 +10,8 @@ import sys
 # Create your views here.
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.views.decorators.csrf import csrf_protect
 
 
-def index(request):
-    return render(request, 'index.html');
-def patient_connect(request):
-    return render(request, 'edit_patient.html')
 def processForm(request):
     encounter_id = request.POST.get('encounter_id', '')
     patient_num = request.POST.get('patient_num', '')
@@ -43,5 +38,5 @@ def processForm(request):
     features_of_med = request.POST.get('features_of_med', '')
     change_of_med = request.POST.get('change_of_med', '')
     diabetes_med = request.POST.get('diabetes_med', '')
-    print(encounter_id)
-    return render(request, 'index.html')
+
+    return HttpResponseRedirect('works')
