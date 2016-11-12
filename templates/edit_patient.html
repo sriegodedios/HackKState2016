@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<div class="page-wrapper">
+		<div class="container">
+			<div class="col-lg-12">
+				<div class="row">
+				<form method="post">
+					<div class="panel panel-default">
+					
+						<div class="panel-heading">
+							<h4> Patient Information</h4>
+						</div>
+						<div class="panel-body" >
+						<div style="max-height: 70%;overflow-y: scroll;">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Parameters</th>
+										<th>Fields</th>
+									</tr>
+								</thead>
+								
+									
+								<tbody>
+								
+									
+										<tr>
+											<td>Encounter ID</td>
+											<td><input type="text" name="encounter_id"  class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Patient Number</td>
+											<td><input type="text" name="patient_num" class="form-control"/></td>
+										
+										</tr>	
+										<tr>
+											<td>Race</td>
+											<td><input type="text" name="race" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Gender</td>
+											<td><input type="text" name="gender" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Age</td>
+											<td><input type="text" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Weight</td>
+											<td><input type="text" name="age" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Admission Type</td>
+											<td><input type="text" name="admission_type" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Discharge Disposition</td>
+											<td><input type="text" name="discharge_dispostion" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Admission Source</td>
+											<td><input type="text" name="admission_source" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Time in Hospital</td>
+											<td><input type="text" name="time_in_hospital" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Payer Code</td>
+											<td><input type="text" name="payer_code" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Medical Specialty</td>
+											<td><input name="medical_speciality" type="text" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Number of Lab Procedures</td>
+											<td><input name="num_of_lab_procedures" type="text" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Number of Procedures</td>
+											<td><input name="num_of_procedures" type="text" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Number of Medications</td>
+											<td><input name="num_of_medications" type="text" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Number of Outpatient Visits</td>
+											<td><input name="num_of_patients" type="text" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Number of Emergency Visits</td>
+											<td><input name="num_of_emergency_visits" type="text" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Number of Inpatient Visits</td>
+											<td><input name="num_of_impatient_visits" type="text" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Diagnosis 1</td>
+											<td><input name="diagnosis_1" type="text" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Diagnosis 2</td>
+											<td><input name="diagnosis_2" type="text" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Diagnosis 3</td>
+											<td><input name="diagnosis_3" type="text" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Number of Diagnoses</td>
+											<td><input type="text" name="name_of_diagnosis"class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Glucose Serum Test Result</td>
+											<td><input name="gluc_ser_test_res" type="text" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>A1c Test Result</td>
+											<td><input type="text" name="alc_test_result" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Features of Medications</td>
+											<td><input name="features_of_med" type="text" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Change of Medications</td>
+											<td><input name="change_of_med" type="text" class="form-control"/></td>
+										
+										</tr>
+										<tr>
+											<td>Diabetes Medications</td>
+											<td><input name="diabetes_med" type="text" class="form-control"/></td>
+										
+										</tr>
+									
+									</tbody>
+								</table>
+								</div>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						
+						</div>
+						<div class="panel-footer">
+							<button type="submit" class="btn btn-info">Update Records</button>
+							<a class="btn btn-warning">Cancel</a>		
+						</div>
+						
+						
+						
+					
+					</div>
+				</form>
+				
+				</div>
+			</div>
+			
+		</div>
+	</div>	
+	
+{% endblock %}
