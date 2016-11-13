@@ -1,6 +1,6 @@
 #BetterDAI 
 
-#Inspiration
+##Inspiration
 We wanted to learn Django. We wanted to do data analysis.
 
 The K-State SIGAI Group proposed a challenge. We want to use data science for the betterment of society. In order to combine these ideas, we concocted BetterDAI, an end to end data pipeline that betters the world.
