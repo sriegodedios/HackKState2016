@@ -4,24 +4,60 @@ from django.http import HttpResponseRedirect
 from django.contrib import auth
 # from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
-
+from array import array
 import os
 import sys
 # Create your views here.
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.decorators.csrf import csrf_protect
+from patient_data.models import Info
 
 import sqlite3
 
+
 def index(request):
-    return render(request, 'index.html');
+
+   # return render_to_response('index.html', {'obj': Info.objects.all()})
+   # patients = Info.patient_nbr.order_by('name')
+    conn = sqlite3.connect('db.sqlite3')
+
+    c = conn.cursor()
+
+
+
+    object1 = []
+
+
+
+
+    for row in c.execute('SELECT patient_nbr FROM {tn} LIMIT 100'.format(tn="patient_data_info")):
+        object1.append(row)
+
+
+
+    return render_to_response('index.html', {'objectp': object1})
+
+    #return render(request, 'index.html');
+
+
 def patient_connect(request):
+    
+
+
+
+
+
+
+
+
     return render(request, 'edit_patient.html')
+
+
 def processForm(request):
     encounter_id = request.POST.get('encounter_id', '')
     patient_num = request.POST.get('patient_num', '')
-    race =  request.POST.get('race', '')
+    race = request.POST.get('race', '')
     gender = request.POST.get('gender', '')
     age = request.POST.get('age', '')
     admission_type = request.POST.get('weight', '')
@@ -36,7 +72,7 @@ def processForm(request):
     num_of_emergency_visits = request.POST.get('num_of_emergency_visits' '')
     num_of_impatient_visits = request.POST.get('num_of_impatient_visits', '')
     diagnosis_1 = request.POST.get('diagnosis_1', '')
-    diagnosis_2 =  request.POST.get('diagnosis_2', '')
+    diagnosis_2 = request.POST.get('diagnosis_2', '')
     diagnosis_3 = request.POST.get('diagnosis_3', '')
     name_of_diagnosis = request.POST.get('name_of_diagnosis', '')
     gluc_ser_test_res = request.POST.get('gluc_ser_test_res', '')
@@ -47,7 +83,6 @@ def processForm(request):
     conn = sqlite3.connect('db.sqlite3')
 
     c = conn.cursor()
-
 
     for row in c.execute('SELECT * FROM {tn} LIMIT 5'.format(tn="patient_data_info")):
         print(row)

@@ -5,43 +5,55 @@
 	{% if form.errors %}
 		<p class="error">Sorry, that's not a valid username or password</p>
 	{% endif %}
-	<div class="page-wrapper">
-		<div class="container">
-		<div class="col-lg-12">
-			<div class="row">
-				<select class ="form-control">
-					<option>Jacob Butler</option>
-					<option>Ferris Dweik</option>
-					<option>Jack Drummond</option>
-				</select>
-				<br/><br/><br/><br/>
-			</div>
-			<div class="row">
-				
-					<button type="post" class="btn btn-primary col-lg-5">Checkout</button>
-					<a href="/patientconnect" class="btn btn-warning col-lg-5 col-lg-offset-2" >Edit</a>
-					
-			</div>
-			<br/>
-			<div class="row">
-				<!-- Used if patient can check out -->
-				<div class="alert alert-success">
-					
-					<p style="font-size: 26px"><strong><i class="fa fa-smile-o fa-6" style="font-size: 36px" aria-hidden="true"></i></strong>&nbsp &nbsp Patient checks ot as a-okay!</p>
-				</div>
-				
-			
-			</div>
-			<div class="row">
-				<!-- Used if patient can check out -->
-				<div class="alert alert-danger">
-					
-					<p style="font-size: 26px"><strong><i class="fa fa-frown-o fa-6" style="font-size: 36px" aria-hidden="true"></i></strong>&nbsp &nbsp Warning patient exhibits troubled medical past, medical release is highly not recomennded!</p>
-				</div>
-				
-			
-			</div>
-			
-		</div>
-	</div>
+    <form method="post" action="">
+        <div class="page-wrapper">
+            <div class="container">
+            <div class="col-lg-12">
+                <div class="row">
+                    <select class ="form-control" name="patient_selection">
+
+                {% for name in objectp %}
+
+
+
+
+                            <option value="{{ name|join:" // " }}">{{ name|join:" // " }}</option>
+
+                {% endfor %}
+
+
+
+                    </select>
+                    <br/><br/><br/><br/>
+                </div>
+                <div class="row">
+
+                        <button type="post" class="btn btn-primary col-lg-5">Checkout</button>
+                        <a href="/patientconnect" class="btn btn-warning col-lg-5 col-lg-offset-2" >Edit</a>
+
+                </div>
+                <br/>
+                <div class="row">
+                    <!-- Used if patient can check out -->
+                    <div class="alert alert-success">
+
+                        <p style="font-size: 26px"><strong><i class="fa fa-smile-o fa-6" style="font-size: 36px" aria-hidden="true"></i></strong>&nbsp &nbsp Patient checks ot as a-okay!</p>
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <!-- Used if patient can check out -->
+                    <div class="alert alert-danger">
+
+                        <p style="font-size: 26px"><strong><i class="fa fa-frown-o fa-6" style="font-size: 36px" aria-hidden="true"></i></strong>&nbsp &nbsp Warning patient exhibits troubled medical past, medical release is highly not recomennded!</p>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </form>
 {% endblock %}
