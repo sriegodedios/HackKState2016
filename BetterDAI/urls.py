@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^patientconnect/$', views.patient_connect, name='patientconnect'),
     url(r'^process_form/$', processForm),
     url(r'^process_data/$', getData),
+    url(r'^home/$', views.index, name='index' )
 
 
 ]
