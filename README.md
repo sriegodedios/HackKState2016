@@ -56,7 +56,7 @@ None of us had worked with Django before, and now we have and probably won't aga
 
 * Providing an end-to-end solution for all the doctors of the world
 
-#What we learned
+##What we learned
 R Django sqlite Machine Learning
 
 ##What's next for BetterDAI
