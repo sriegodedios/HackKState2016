@@ -42,7 +42,7 @@ def index(request):
 
 
 def patient_connect(request):
-    
+
 
 
 
