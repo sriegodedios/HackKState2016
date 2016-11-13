@@ -238,7 +238,7 @@ clf <- cv.glmnet(y=y,x=as.matrix(train),
                  family="binomial",type.measure="auc", nfolds = 4,parallel=TRUE,lambda=lambda)
 qplot(clf$lambda,clf$cvm)
 mtest[,i] <- predict(clf,newx=as.matrix(test), s="lambda.min",type="response")
- 
+
 # glm stacking
 #lambda <-10^seq(-5,-1.5,0.01) 
 #clf <- cv.glmnet(y=y,x=as.matrix(mtrain[,1:6]),
@@ -249,14 +249,14 @@ mtest[,i] <- predict(clf,newx=as.matrix(test), s="lambda.min",type="response")
 #apply(mtrain[,1:6], 2, function(x) auc(y,x)) #auc
 apply(mtrain[,1:6], 2, function(x) mse(y,x)) #auc
 pred_train <- (4*mtrain[,1]+1*mtrain[,2]+1*mtrain[,3]+8*mtrain[,4]+2*mtrain[,5])/16;mse(y,pred_train)
-#sum(1-abs(y-pred_train)/2)/length(pred) 82.2% prediction correct
+sum(1-abs(y-pred_train)/2)/length(pred) 
+#82.3% prediction correct
 
 #pred <- as.integer(pred_train>0.756)
-#head(as.integer(pred_train>0.756),10)
-
+ 
 #submission 
 pred_test <- (4*mtest[,1]+1*mtest[,2]+1*mtest[,3]+8*mtest[,4]+2*mtest[,5])/16
 submission <- data.frame(ID=testID, readmitted= as.numeric(format(pred_test,digits = 16,scientific = FALSE)))
-head(submission)
+#head(submission)
 write.csv(submission, "validation_readmitted.csv", row.names=FALSE)
   
