@@ -1,6 +1,6 @@
 #BetterDAI 
 
-Better Doctors with artifical intellignce make better days for everyone
+*Better Doctors with artifical intellignce make better days for everyone.*
 
 ##Inspiration
 We wanted to learn Django. We wanted to do data analysis.
