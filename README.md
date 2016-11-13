@@ -19,14 +19,16 @@ Once the model has done its work, the doctor has access to top of the line analy
 BetterDAI collects data, cleans it, processes it, and delivers it back with useful information. The full stack. The pipeline. The end to end solution for doctors everywhere. It is data science for good!
 
 ##How we built it
-We used R to create a model. We started with a basic decision tree based on the features and ended with a full out (insert our final model description here).
 
-We used django to create a web application in python that allowed us to create an end to end system.
+* We used R to create a model. We started with a basic decision tree based on the features and ended with a full out (insert our final    model description here).
 
-We hosted our app on DigitalOcean using a domain from domain.com.
+* We used django to create a web application in python that allowed us to create an end to end system.
+
+* We hosted our app on DigitalOcean using a domain from domain.com.
 
 ##Challenges we ran into/ Hacks we made
-DJANGO
+
+###DJANGO
 
 Static files within Django. We spent countless hours trying to get a correct implementation, but ended up settling with a sub-par hack. (We hosted our css files on another DigitalOcean droplet and referenced them CDN-like through a URL)
 
@@ -37,19 +39,20 @@ Getting the Django project to run on the DigitalOcean server. We ended up just p
 None of us had worked with Django before, and now we have and probably won't again.
 
 ##Accomplishments that we're proud of
-Setting up domain with digital ocean droplet
 
-Running Django app on said domain
+* Setting up domain with digital ocean droplet
 
-Client/Server communication
+* Running Django app on said domain
 
-Create a model to analyze the data in R
+* Client/Server communication
 
-Integrating sqlite database
+* Create a model to analyze the data in R
 
-Preparing csv file for analysis
+* Integrating sqlite database
 
-Providing an end-to-end solution for all the doctors of the world
+* Preparing csv file for analysis
+
+* Providing an end-to-end solution for all the doctors of the world
 
 #What we learned
 R Django sqlite Machine Learning
