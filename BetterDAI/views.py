@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response
+from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
 from django.contrib import auth
 # from django.core.context_processors import csrf
@@ -13,7 +14,7 @@ from django.contrib import admin
 from django.views.decorators.csrf import csrf_protect
 from patient_data.models import Info
 from twilio.rest import TwilioRestClient
-
+import csv
 
 import sqlite3
 
@@ -168,7 +169,7 @@ def processForm(request):
     # conn = sqlite3.connect('db.sqlite3')
     #
     # sql = "INSERT or REPLACE into patient_data_info VALUES ()"
-    # 
+    #
     # count = 0
     # input = {}
     # for key in arr:
@@ -194,8 +195,20 @@ def processForm(request):
     #
     # print('works')
     # conn.close()
+
+
+    conn = sqlite3.connect('db.sqlite3')
+    cursor = conn.cursor()
+    cursor.execute('select * from patient_data_info')
+    with open('out.csv', "w") as csv_file:
+        csv_writer = csv.writer(csv_file)
+        csv_writer.writerow([i[0] for i in cursor.description])
+        csv_writer.writerows(cursor)
+
+    print('done')
     send_sms()
-    return render(request, 'index.html')
+    return redirect('http://betterdai.tech')
+   # return render(request, 'index.html')
 
 
 
