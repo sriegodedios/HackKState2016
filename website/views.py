@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.contrib import auth
-# from django.core.context_processors import csrf
+#from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_protect
 
 import os
 import sys
@@ -40,7 +41,7 @@ def processForm(request):
     change_of_med = request.POST.get('change_of_med', '')
     diabetes_med = request.POST.get('diabetes_med', '')
 
-    conn = sqlite3.connect('../db.sqlite3')
+    conn = sqlite3.connect('db.sqlite3')
 
     c = conn.cursor()
 
@@ -50,3 +51,17 @@ def processForm(request):
     print('works')
     conn.close()
     return HttpResponseRedirect('works')
+
+def getData(request):
+    Patient = request.POST.get('patient_selection')
+    conn = sqlite3.connect('db.sqlite3')
+
+    c = conn.cursor()
+
+    for row in c.execute('SELECT Readmitted FROM {tn} WHERE readmitted={tb}'.format(tn="patient_data_info", tb='<30')):
+        print(row)
+
+    print('works')
+    conn.close()
+    return render(request, 'index.html')
+

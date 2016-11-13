@@ -12,8 +12,13 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.decorators.csrf import csrf_protect
 from patient_data.models import Info
+from twilio.rest import TwilioRestClient
+
 
 import sqlite3
+
+
+
 
 
 def index(request):
@@ -80,6 +85,7 @@ def processForm(request):
     features_of_med = request.POST.get('features_of_med', '')
     change_of_med = request.POST.get('change_of_med', '')
     diabetes_med = request.POST.get('diabetes_med', '')
+
     conn = sqlite3.connect('db.sqlite3')
 
     c = conn.cursor()
@@ -89,5 +95,70 @@ def processForm(request):
 
     print('works')
     conn.close()
-
+    send_sms()
     return render(request, 'index.html')
+
+
+
+
+
+def send_sms():
+    # put your own credentials here
+    ACCOUNT_SID = "AC4629bd5abeac87277b0af95696ad71c4"
+    AUTH_TOKEN = "47a27b0261a843a6f7b7652cf854395b"
+
+    client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
+
+    client.messages.create(
+        to="+16207673336",
+        from_="+17855306418",
+        body="BetterDAI patient records have been updated.",
+    )
+
+def getData(request):
+
+    patient = request.POST.get('patient_selection', '')
+
+    conn = sqlite3.connect('db.sqlite3')
+    print(patient)
+    c = conn.cursor()
+
+    sql = "SELECT readmitted FROM patient_data_info WHERE patient_nbr=?"
+    c.execute(sql, [(patient)])
+
+    value = c.fetchone()
+    print(value)
+
+    boolean = ''
+
+    if(value=="('>30'),"):
+        boolean = False
+
+    if(value=="('NO'),"):
+        boolean = False
+
+    #Condition for leaving the hospital
+    if(value=="('<30'),"):
+        boolean = True
+    #Condition for readmitting (caution)
+
+
+
+
+
+
+
+    for row in c.execute('SELECT * FROM {tn} WHERE patient_nbr={tr}'.format(tn="patient_data_info", tr=patient)):
+        print(row)
+
+    print('works')
+    conn.close()
+    return render(request, 'index.html', {})
+
+
+
+
+
+
+
+
