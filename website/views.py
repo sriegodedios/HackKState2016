@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 import os
 import sys
+import sqlite3
 # Create your views here.
 from django.conf.urls import include, url
 from django.contrib import admin
@@ -39,4 +40,13 @@ def processForm(request):
     change_of_med = request.POST.get('change_of_med', '')
     diabetes_med = request.POST.get('diabetes_med', '')
 
+    conn = sqlite3.connect('../db.sqlite3')
+
+    c = conn.cursor()
+
+    for row in c.execute('SELECT * FROM {tn} LIMIT 5'.format(tn="patient_data_info")):
+        print(row)
+
+    print('works')
+    conn.close()
     return HttpResponseRedirect('works')

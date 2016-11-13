@@ -12,6 +12,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.decorators.csrf import csrf_protect
 
+import sqlite3
 
 def index(request):
     return render(request, 'index.html');
@@ -43,5 +44,15 @@ def processForm(request):
     features_of_med = request.POST.get('features_of_med', '')
     change_of_med = request.POST.get('change_of_med', '')
     diabetes_med = request.POST.get('diabetes_med', '')
-    print(encounter_id)
+    conn = sqlite3.connect('db.sqlite3')
+
+    c = conn.cursor()
+
+
+    for row in c.execute('SELECT * FROM {tn} LIMIT 5'.format(tn="patient_data_info")):
+        print(row)
+
+    print('works')
+    conn.close()
+
     return render(request, 'index.html')
