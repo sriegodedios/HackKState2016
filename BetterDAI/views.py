@@ -59,9 +59,15 @@ def patient_connect(request):
 
     return render(request, 'edit_patient.html')
 
-@csrf_exempt
+
 def processForm(request):
     arr = {}
+
+
+
+
+
+
 
     encounter_id = request.POST.get('encounter_id', '')
     patient_nbr = request.POST.get('patient_nbr', '')
@@ -115,8 +121,80 @@ def processForm(request):
     readmitted = request.POST.get('readmitted', '')
 
 
-
-
+    # arr['encounter_id', encounter_id]
+    # arr['patient_nbr', patient_nbr]
+    # arr['race', race]
+    # arr['gender', gender]
+    # arr['age', age]
+    # arr['admission_type_id', admission_type_id]
+    # arr['discharge_disposition_id', discharge_disposition_id]
+    # arr['admission_source_id', admission_source_id]
+    # arr['time_in_hospital', time_in_hospital]
+    # arr['payer_code', payer_code]
+    # arr['medical_specialty', medical_specialty]
+    # arr['number_outpatient', number_outpatient]
+    # arr['number_emergency', number_emergency]
+    # arr['number_inpatient', number_inpatient]
+    # arr['diag_1', diag_1]
+    # arr['diag_2', diag_2]
+    # arr['diag_3', diag_3]
+    # arr['number_diagnoses', number_diagnoses]
+    # arr['max_glu_serum', max_glu_serum]
+    # arr['metformin', metformin]
+    # arr['repaglinide', repaglinide]
+    # arr['nateglinide', nateglinide]
+    # arr['chlorpropamide', chlorpropamide]
+    # arr['glimepiride', glimepiride]
+    # arr['acetohexamide', acetohexamide]
+    # arr['glipizide', glipizide]
+    # arr['glyburide', glyburide]
+    # arr['tolbutamide', tolbutamide]
+    # arr['pioglitazone', pioglitazone]
+    # arr['rosiglitazone', rosiglitazone]
+    # arr['acarbose', acarbose]
+    # arr['miglitol', miglitol]
+    # arr['troglitazone', troglitazone]
+    # arr['tolazamide', tolazamide]
+    # arr['citoglipton', citoglipton]
+    # arr['insulin', insulin]
+    # arr['glyburide.metformin', glyburidemetformin]
+    # arr['glipizide.metformin', glipizidemetformin]
+    # arr['glimepiride.pioglitazone', glimepiridepioglitazone]
+    # arr['metformin.rosiglitazone', metforminrosiglitazone]
+    # arr['metformin.pioglitazone', metforminpioglitazone]
+    # arr['change', change]
+    # arr['diabetesMed', diabetesMed]
+    # arr['readmitted', readmitted]
+    #
+    # conn = sqlite3.connect('db.sqlite3')
+    #
+    # sql = "INSERT or REPLACE into patient_data_info VALUES ()"
+    #
+    # count = 0
+    # input = {}
+    # for key in arr:
+    #     if arr[key] != "":
+    #         input[key] = arr[key]
+    #
+    # c = conn.cursor()
+    # sql = 'insert or replace into patient_data_info ('
+    # for key in input:
+    #     sql = sql + '?,'
+    #
+    # sql = sql[:-1] + ') values ('
+    #
+    # for key in input:
+    #     sql = sql + '?,'
+    #
+    # sql = sql[:-1] + ');'
+    #
+    # print(sql)
+    #
+    # for row in c.execute('SELECT * FROM {tn} LIMIT 5'.format(tn="patient_data_info")):
+    #     print(row)
+    #
+    # print('works')
+    # conn.close()
 
 
     conn = sqlite3.connect('db.sqlite3')
@@ -127,25 +205,8 @@ def processForm(request):
         csv_writer.writerow([i[0] for i in cursor.description])
         csv_writer.writerows(cursor)
 
-
-    sql = 'INSERT INTO patient_data_info (patient_nbr) VALUES(?)'
-    cursor.execute(sql, [(patient_nbr)])
     print('done')
     send_sms()
-
-
-
-    object1 = []
-
-
-
-
-    for row in cursor.execute('SELECT patient_nbr FROM {tn} LIMIT 100'.format(tn="patient_data_info")):
-        object1.append(row)
-
-
-
-    return render_to_response('index.html', {'objectp': object1})
     return redirect('http://betterdai.tech')
    # return render(request, 'index.html')
 
@@ -166,7 +227,6 @@ def send_sms():
         body="BetterDAI patient records have been updated.",
     )
 
-@csrf_exempt
 def getData(request):
 
     patient = request.POST.get('patient_selection', '')
@@ -188,6 +248,7 @@ def getData(request):
     else:
         return render(request, 'success.html', {})
     #Condition for readmitting (caution)
+
 
 
 
