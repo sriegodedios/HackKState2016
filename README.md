@@ -22,7 +22,7 @@ BetterDAI collects data, cleans it, processes it, and delivers it back with usef
 
 ##How we built it
 
-* We used R to create a model. We started with a basic decision tree based on the features and ended with a full out (insert our final    model description here).
+* We used R to analyze data and do predictive modeling. We started with exploratory data analysis involving some data visualization, after which we establish a solid cross validation scheme to examine feature engineering. With new datasets prepared, we build one logistic regression model, two random forest models and two boosting models. Finally we stack all models together and make prediction for test/validation dataset.  
 
 * We used django to create a web application in python that allowed us to create an end to end system.
 
