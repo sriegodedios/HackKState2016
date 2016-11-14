@@ -1,6 +1,6 @@
 #BetterDAI 
 
-*Better Doctors with artifical intellignce make better days for everyone.*
+*BETTER Doctors with Artifical Intellignce make better days for everyone.*
 
 ##Inspiration
 We wanted to learn Django. We wanted to do data analysis.
@@ -48,7 +48,7 @@ None of us had worked with Django before, and now we have and probably won't aga
 
 * Client/Server communication
 
-* Create a model to analyze the data in R
+* Analyze the data and create models with high predictive accuracy in R
 
 * Integrating sqlite database
 
