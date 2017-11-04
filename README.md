@@ -1,15 +1,15 @@
-#BetterDAI#
+# BetterDAI #
 
 *Better Doctors with Artifical Intellignce make better days for everyone.*
 
-##Inspiration##
+## Inspiratio n##
 We wanted to learn Django. We wanted to do data analysis.
 
 The K-State SIGAI Group proposed a challenge. We want to use data science for the betterment of society. In order to combine these ideas, we concocted BetterDAI, an end to end data pipeline that betters the world.
 
 Our goal was to predict which patients will be re-admitted to the hospital within 30 days of their discharge. This is a real problem for hospitals, who don't get paid for a re-admission if it happens within 30 days after the patient was discharged, and patients, who would like to live their life outside the walls of a hospital and be healthy.
 
-##What it does##
+## What it does ##
 BetterDAI is a state of the art end to end pipeline that uses Python, Django, Sqlite, Twilio, DigitalOcean, Bootstrap, R, and Machine Learning.
 
 Doctors insert data about all their patients into the form on the web application. This information is stored in a database.
@@ -20,7 +20,7 @@ Once the model has done its work, the doctor has access to top of the line analy
 
 BetterDAI collects data, cleans it, processes it, and delivers it back with useful information. The full stack. The pipeline. The end to end solution for doctors everywhere. It is data science for good!
 
-##How we built it##
+## How we built it ##
 
 * We used R to analyze data and do predictive modeling. We started with exploratory data analysis involving some data visualization, after which we establish a solid cross validation scheme to examine feature engineering. With new datasets prepared, we build one logistic regression model, two random forest models and two boosting models. Finally we stack all models together and make prediction for test/validation dataset.  
 
@@ -28,9 +28,9 @@ BetterDAI collects data, cleans it, processes it, and delivers it back with usef
 
 * We hosted our app on DigitalOcean using a domain from domain.com.
 
-##Challenges we ran into/ Hacks we made##
+## Challenges we ran into/ Hacks we made ##
 
-###DJANGO###
+### DJANGO ###
 
 Static files within Django. We spent countless hours trying to get a correct implementation, but ended up settling with a sub-par hack. (We hosted our css files on another DigitalOcean droplet and referenced them CDN-like through a URL)
 
@@ -56,8 +56,8 @@ None of us had worked with Django before, and now we have and probably won't aga
 
 * Providing an end-to-end solution for all the doctors of the world
 
-##What we learned##
+## What we learned ##
 R Django sqlite Machine Learning
 
-##What's next for BetterDAI##
+## What's next for BetterDAI ##
 After it is implemented by every hospital in the U.S. and many people's days have been made better, we will expand internationally and once we have expanded internationally everyone in the entire world's day will have been made better and there will be so much joy in the world that their will be world peace among all nations.
